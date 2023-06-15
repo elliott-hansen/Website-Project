@@ -6,7 +6,7 @@ body {
     overflow-x: hidden;
     background-repeat: repeat;
     background-size: 10%;
-    animation: blurBackground 2s ease-out normal forwards;
+    animation: blurBackground 2s 3s ease-out normal forwards;
     background-position: fixed; 
     background-attachment: fixed;
 }
@@ -34,10 +34,13 @@ span::selection {
 
 @keyframes blurBackground {
     0% {
-        backdrop-filter: blur(3px);
+        backdrop-filter: blur(5px);
+        backdrop-filter: brightness(100%);
     }
     100% {
         backdrop-filter: blur(5px);
+        backdrop-filter: brightness(30%);
+        
     }
 }
 
@@ -96,6 +99,43 @@ span::selection {
     width: 15%;
 }
 
+@keyframes photoBlockFadeIn {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+.photoBlock {
+    width: 64vw; 
+    /* border: 2px solid white;  */
+    justify-content: space-evenly;
+    opacity: 0%;
+    animation: photoBlockFadeIn 2s 2s normal forwards;
+    position: static;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.photoBlock > .photoBox {
+
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    /* border: 2px solid white;  */
+    width: 100%;
+    margin: 2%;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.photoBox > img {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
 #social:hover {
     filter: brightness(100%);
 }
